@@ -176,6 +176,6 @@ Include: your skills, available time, and whether you can test on hardware.
 
 <br>
 
-[![Take the Interactive Guide](https://img.shields.io/badge/✨_Explore_the_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://the-open-memory-initiative-omi.github.io/.github/)
+[![Explore the Interactive Guide](https://img.shields.io/badge/✨_Explore_the_Interactive_Guide-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=2da44e)](https://the-open-memory-initiative-omi.github.io/.github/)
 
 </div>

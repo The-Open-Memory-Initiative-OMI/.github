@@ -3,9 +3,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Open-Memory-Initiative/.github/main/assets/omi-banner-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Open-Memory-Initiative/.github/main/assets/omi-banner-light.svg">
-  <img alt="Open Memory Initiative" src="https://raw.githubusercontent.com/Open-Memory-Initiative/.github/main/assets/omi-banner-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/The-Open-Memory-Initiative-OMI/.github/main/assets/omi-banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/The-Open-Memory-Initiative-OMI/.github/main/assets/omi-banner-light.svg">
+  <img alt="Open Memory Initiative" src="https://raw.githubusercontent.com/The-Open-Memory-Initiative-OMI/.github/main/assets/omi-banner-dark.svg" width="100%">
 </picture>
 
 <br><br>
@@ -16,11 +16,11 @@ Making memory systems explainable, reviewable, and reproducible.
 
 <br>
 
-[![Interactive Guide](https://img.shields.io/badge/✨_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://open-memory-initiative.github.io/.github/)
+[![Interactive Guide](https://img.shields.io/badge/✨_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://the-open-memory-initiative-omi.github.io/.github/)
 &nbsp;
-[![Discussions](https://img.shields.io/badge/💬_Discussions-1a2030?style=for-the-badge&logo=github&logoColor=white)](https://github.com/orgs/Open-Memory-Initiative/discussions)
+[![Discussions](https://img.shields.io/badge/💬_Discussions-1a2030?style=for-the-badge&logo=github&logoColor=white)](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)
 &nbsp;
-[![Start Here](https://img.shields.io/badge/🚀_Start_Here-00d4ff?style=for-the-badge&logo=github&logoColor=0a0e14)](https://github.com/Open-Memory-Initiative/omi/blob/main/START_HERE.md)
+[![Start Here](https://img.shields.io/badge/🚀_Start_Here-00d4ff?style=for-the-badge&logo=github&logoColor=0a0e14)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
 
 </div>
 
@@ -59,15 +59,15 @@ Making memory systems explainable, reviewable, and reproducible.
 
 | | Resource | Description |
 |:---:|:---|:---|
-| ⭐ | **[omi](https://github.com/Open-Memory-Initiative/omi)** core repository | Start from [`START_HERE.md`](https://github.com/Open-Memory-Initiative/omi/blob/main/START_HERE.md) — beginner-friendly entry points and tracks |
-| 💬 | **[Discussions](https://github.com/orgs/Open-Memory-Initiative/discussions)** | Questions, proposals, and design RFCs |
-| 🎯 | **[Issues](https://github.com/Open-Memory-Initiative/omi/issues)** | Actionable tasks, review findings, and validation reports |
+| ⭐ | **[omi](https://github.com/The-Open-Memory-Initiative-OMI/omi)** core repository | Start from [`START_HERE.md`](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md) — beginner-friendly entry points and tracks |
+| 💬 | **[Discussions](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)** | Questions, proposals, and design RFCs |
+| 🎯 | **[Issues](https://github.com/The-Open-Memory-Initiative-OMI/omi/issues)** | Actionable tasks, review findings, and validation reports |
 
 ---
 
 ## We're recruiting — pick a track
 
-> **Not sure which track fits you?** Try our **[interactive Track Finder quiz →](https://open-memory-initiative.github.io/.github/)**
+> **Not sure which track fits you?** Try our **[interactive Track Finder quiz →](https://the-open-memory-initiative-omi.github.io/.github/)**
 
 <details open>
 <summary>⚡ <strong>Track 01 — Developers</strong> <em>(tooling + automation + docs)</em></summary>
@@ -176,6 +176,6 @@ Include: your skills, available time, and whether you can test on hardware.
 
 <br>
 
-[![Take the Interactive Guide](https://img.shields.io/badge/✨_Explore_the_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://open-memory-initiative.github.io/.github/)
+[![Take the Interactive Guide](https://img.shields.io/badge/✨_Explore_the_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://the-open-memory-initiative-omi.github.io/.github/)
 
 </div>

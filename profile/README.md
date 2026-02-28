@@ -16,11 +16,11 @@ Making memory systems explainable, reviewable, and reproducible.
 
 <br>
 
-[![Interactive Guide](https://img.shields.io/badge/✨_Interactive_Guide-00ffa3?style=for-the-badge&logo=github&logoColor=0a0e14)](https://the-open-memory-initiative-omi.github.io/.github/)
+[![Interactive Guide](https://img.shields.io/badge/Interactive_Guide-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=2da44e)](https://the-open-memory-initiative-omi.github.io/.github/)
 &nbsp;
-[![Discussions](https://img.shields.io/badge/💬_Discussions-1a2030?style=for-the-badge&logo=github&logoColor=white)](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)
+[![Discussions](https://img.shields.io/badge/Discussions-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=57606a)](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)
 &nbsp;
-[![Start Here](https://img.shields.io/badge/🚀_Start_Here-00d4ff?style=for-the-badge&logo=github&logoColor=0a0e14)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
+[![Start Here](https://img.shields.io/badge/Start_Here-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=8250df)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
 
 </div>
 

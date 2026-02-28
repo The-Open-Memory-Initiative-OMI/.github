@@ -1,0 +1,62 @@
+<svg width="900" height="180" viewBox="0 0 900 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="900" y2="180">
+      <stop offset="0%" stop-color="#0a0e14"/>
+      <stop offset="100%" stop-color="#111a28"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="300" y2="0">
+      <stop offset="0%" stop-color="#00ffa3"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="900" y2="0">
+      <stop offset="0%" stop-color="#00ffa3" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00ffa3" stop-opacity="0.3"/>
+      <stop offset="80%" stop-color="#00d4ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="180" fill="url(#bgGrad)" rx="12"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.04" stroke="#00ffa3" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="180"/><line x1="48" y1="0" x2="48" y2="180"/>
+    <line x1="96" y1="0" x2="96" y2="180"/><line x1="144" y1="0" x2="144" y2="180"/>
+    <line x1="192" y1="0" x2="192" y2="180"/><line x1="240" y1="0" x2="240" y2="180"/>
+    <line x1="288" y1="0" x2="288" y2="180"/><line x1="336" y1="0" x2="336" y2="180"/>
+    <line x1="384" y1="0" x2="384" y2="180"/><line x1="432" y1="0" x2="432" y2="180"/>
+    <line x1="480" y1="0" x2="480" y2="180"/><line x1="528" y1="0" x2="528" y2="180"/>
+    <line x1="576" y1="0" x2="576" y2="180"/><line x1="624" y1="0" x2="624" y2="180"/>
+    <line x1="672" y1="0" x2="672" y2="180"/><line x1="720" y1="0" x2="720" y2="180"/>
+    <line x1="768" y1="0" x2="768" y2="180"/><line x1="816" y1="0" x2="816" y2="180"/>
+    <line x1="864" y1="0" x2="864" y2="180"/>
+    <line x1="0" y1="48" x2="900" y2="48"/><line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="144" x2="900" y2="144"/>
+  </g>
+  
+  <!-- Glow -->
+  <circle cx="120" cy="90" r="140" fill="#00ffa3" opacity="0.03"/>
+  <circle cx="780" cy="90" r="120" fill="#00d4ff" opacity="0.02"/>
+  
+  <!-- Status dot -->
+  <circle cx="60" cy="72" r="4" fill="#00ffa3" opacity="0.9"/>
+  
+  <!-- Label -->
+  <text x="74" y="76" font-family="monospace" font-size="10" fill="#00ffa3" letter-spacing="3" opacity="0.7">OPEN MEMORY INITIATIVE</text>
+  
+  <!-- Main title -->
+  <text x="60" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="900" fill="#eef1f6" letter-spacing="-0.5">
+    OMI
+  </text>
+  <text x="145" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="400" fill="#8891a0" letter-spacing="-0.5">
+    — No Black Boxes
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="60" y="146" font-family="monospace" font-size="12" fill="#6b7685">
+    If it can't be inspected, it can't be trusted.
+  </text>
+  
+  <!-- Bottom accent line -->
+  <rect x="0" y="176" width="900" height="4" fill="url(#lineGrad)" rx="2"/>
+</svg>

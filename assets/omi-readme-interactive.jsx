@@ -176,7 +176,15 @@ export default function OMIReadme() {
   const computeQuiz = () => {
     const counts = { dev: 0, review: 0, test: 0 };
     Object.values(quizAnswers).forEach((t) => counts[t]++);
-    const best = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    const maxScore = sorted[0][1];
+    const topTracks = sorted.filter(([, score]) => score === maxScore);
+    if (maxScore === 0 || topTracks.length !== 1) {
+      // No clear single best match (either tie or no answers).
+      setQuizResult(null);
+      return;
+    }
+    const best = topTracks[0][0];
     setQuizResult(best);
     setActiveTrack(best);
   };

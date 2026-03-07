@@ -123,15 +123,14 @@
   .toggle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 64px; }
   .toggle-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px 24px; cursor: pointer;
-    transition: all 0.3s ease; text-align: left;
-    -webkit-user-select: none; user-select: none;
+    border-radius: 12px; transition: all 0.3s ease;
   }
   .toggle-card.open { background: var(--surface-hover); }
   .toggle-card-header {
     display: flex; justify-content: space-between; align-items: center;
-    width: 100%; background: none; border: none; padding: 0; cursor: pointer;
-    color: inherit; text-align: left; font: inherit;
+    width: 100%; padding: 20px 24px; cursor: pointer; text-align: left;
+    background: transparent; border: none; color: inherit;
+    font-size: inherit; font-family: inherit;
   }
   .toggle-card-header span:first-child { font-family: var(--font-mono); font-weight: 600; font-size: 15px; }
   .toggle-card-header .icon {
@@ -140,9 +139,10 @@
   }
   .toggle-card.open .icon { transform: rotate(45deg); }
   .toggle-card-body {
-    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.3s ease;
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 24px;
   }
-  .toggle-card.open .toggle-card-body { max-height: 300px; margin-top: 16px; }
+  .toggle-card.open .toggle-card-body { max-height: 300px; padding: 0 24px 20px; }
   .toggle-item {
     display: flex; gap: 10px; margin-bottom: 10px;
     font-size: 14px; line-height: 1.6; color: var(--text-dim);
@@ -595,11 +595,15 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // ── Toggle cards ──
-  function toggleCard(card) {
+  function toggleCard(btn) {
+    const card = btn.closest('.toggle-card');
     card.classList.toggle('open');
     const body = card.querySelector('.toggle-card-body');
     const btn = card.querySelector('.toggle-card-header');
     const isOpen = card.classList.contains('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = bodyId ? document.getElementById(bodyId) : card.querySelector('.toggle-card-body');
     if (body) body.setAttribute('aria-hidden', String(!isOpen));
     if (btn) btn.setAttribute('aria-expanded', String(isOpen));
     // Simple approach: just toggle border

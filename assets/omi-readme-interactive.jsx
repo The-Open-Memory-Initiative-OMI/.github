@@ -372,11 +372,13 @@ export default function OMIReadme() {
                     }}>
                       {title}
                     </span>
-                    <span style={{
-                      fontFamily: font, fontSize: 18, color: "#4a5568",
-                      transform: expandedSections[key] ? "rotate(45deg)" : "rotate(0)",
-                      transition: "transform 0.3s ease",
-                    }}>
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        fontFamily: font, fontSize: 18, color: "#4a5568",
+                        transform: expandedSections[key] ? "rotate(45deg)" : "rotate(0)",
+                        transition: "transform 0.3s ease",
+                      }}>
                       +
                     </span>
                   </button>

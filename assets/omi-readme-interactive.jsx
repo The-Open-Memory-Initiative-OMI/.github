@@ -188,8 +188,10 @@ export default function OMIReadme() {
       overflow: "hidden",
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&display=swap');
+        /* NOTE: Fonts used by this component (DM Sans, IBM Plex Mono, Space Grotesk, Anybody)
+         * must be loaded by the hosting document, e.g. via
+         * <link rel="preconnect"> and <link rel="stylesheet"> tags in <head>.
+         * This <style> block is reserved for local rules only. */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0a0e14; }

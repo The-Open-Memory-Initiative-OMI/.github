@@ -52,7 +52,7 @@ const TRACKS = [
     id: "review",
     num: "02",
     title: "Reviewers",
-    subtitle: "correctness + clarity + scope enforcement",
+    subtitle: "correctness + clarity + scope",
     icon: "🔍",
     color: "#00d4ff",
     desc: "You help keep OMI coherent.",
@@ -67,7 +67,7 @@ const TRACKS = [
     id: "test",
     num: "03",
     title: "Testers",
-    subtitle: "validation evidence + reproducible reports",
+    subtitle: "validation + reproducibility",
     icon: "🧪",
     color: "#ff6b9d",
     desc: "You turn designs into reality checks.",
@@ -328,7 +328,7 @@ export default function OMIReadme() {
                   items: [
                     "A community effort to document and design memory systems with auditability and repeatable validation",
                     "A place where assumptions are explicit, decisions are documented, and review is structured",
-                    "A collaboration between developers, reviewers, and testers",
+                    "A collaboration between developers, reviewers, and testers — not just PCB designers",
                   ],
                 },
                 {

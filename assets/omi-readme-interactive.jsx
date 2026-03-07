@@ -188,8 +188,10 @@ export default function OMIReadme() {
       overflow: "hidden",
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&display=swap');
+        /* NOTE: Fonts used by this component (DM Sans, IBM Plex Mono, Space Grotesk, Anybody)
+         * must be loaded by the hosting document, e.g. via
+         * <link rel="preconnect"> and <link rel="stylesheet"> tags in <head>.
+         * This <style> block is reserved for local rules only. */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0a0e14; }
@@ -730,6 +732,20 @@ export default function OMIReadme() {
             }}>
               Contribution standards
             </h2>
+            <style>{`
+              .omi-principle-row {
+                background: #0d1119;
+                border: 1px solid #1a2030;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                outline: none;
+              }
+              .omi-principle-row:hover,
+              .omi-principle-row:focus-visible {
+                border-color: #00ffa340;
+                background: #111722;
+              }
+            `}</style>
             <div style={{ display: "grid", gap: 8 }}>
               {PRINCIPLES.map((p, i) => (
                 <div
@@ -738,18 +754,6 @@ export default function OMIReadme() {
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
                     padding: "14px 20px",
-                    background: "#0d1119",
-                    border: "1px solid #1a2030",
-                    borderRadius: 8,
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#00ffa340";
-                    e.currentTarget.style.background = "#111722";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "#1a2030";
-                    e.currentTarget.style.background = "#0d1119";
                   }}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = "#00ffa340";

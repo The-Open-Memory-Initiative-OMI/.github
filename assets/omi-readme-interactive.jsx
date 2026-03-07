@@ -1,3 +1,25 @@
+/**
+ * omi-readme-interactive.jsx
+ *
+ * Source reference for the interactive Track Finder component used in the
+ * OMI GitHub Pages site (docs/index.html).
+ *
+ * HOW IT IS USED
+ * This file is NOT processed by a build tool or bundler — the repo has no
+ * package.json or React build pipeline.  Instead, the component logic is
+ * compiled manually and inlined directly into docs/index.html, which is the
+ * live page served at https://the-open-memory-initiative-omi.github.io/.github/
+ *
+ * If you want to iterate on this component with a proper dev loop:
+ *   1. Copy the component into a Vite or Next.js project.
+ *   2. Make your changes and verify them.
+ *   3. Inline (or import via a CDN-based React setup) the updated output back
+ *      into docs/index.html, then open a PR.
+ *
+ * The file reads React hooks from `window.React` when available, with static
+ * no-op shims as a fallback so the raw .jsx can be linted without a runtime.
+ */
+
 const { useState, useEffect, useRef } =
   (typeof window !== "undefined" && window.React) || {
     // Fallback shims so this file can be safely loaded in static GitHub Pages

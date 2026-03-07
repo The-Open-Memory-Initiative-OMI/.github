@@ -179,7 +179,7 @@ export default function OMIReadme() {
   const fontSans = "'DM Sans', 'Segoe UI', system-ui, sans-serif";
 
   return (
-    <div style={{
+    <div className="omi-readme-widget" style={{
       minHeight: "100vh",
       background: "#0a0e14",
       color: "#c5cdd8",
@@ -188,14 +188,14 @@ export default function OMIReadme() {
       overflow: "hidden",
     }}>
       <style>{`
-        /* NOTE: Fonts used by this component (DM Sans, IBM Plex Mono, Space Grotesk, Anybody)
+        /* NOTE: Fonts used by this component (DM Sans, IBM Plex Mono, Anybody)
          * must be loaded by the hosting document, e.g. via
          * <link rel="preconnect"> and <link rel="stylesheet"> tags in <head>.
          * This <style> block is reserved for local rules only. */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0a0e14; }
-        ::-webkit-scrollbar-thumb { background: #1a2030; border-radius: 3px; }
+        .omi-readme-widget * { box-sizing: border-box; margin: 0; padding: 0; }
+        .omi-readme-widget ::-webkit-scrollbar { width: 6px; }
+        .omi-readme-widget ::-webkit-scrollbar-track { background: #0a0e14; }
+        .omi-readme-widget ::-webkit-scrollbar-thumb { background: #1a2030; border-radius: 3px; }
         @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
         @keyframes scanline {
           0% { transform: translateY(-100%); }
@@ -295,6 +295,7 @@ export default function OMIReadme() {
               ].map(({ key, title, color, items }) => (
                 <button
                   key={key}
+                  type="button"
                   onClick={() => toggleSection(key)}
                   aria-expanded={!!expandedSections[key]}
                   aria-controls={`section-${key}`}
@@ -425,9 +426,10 @@ export default function OMIReadme() {
         <Section delay={100}>
           <div style={{ marginBottom: 32, textAlign: "center" }}>
             <button
+              type="button"
               onClick={() => { setShowQuiz(!showQuiz); setQuizResult(null); setQuizAnswers({}); }}
               aria-expanded={showQuiz}
-              aria-controls="quiz-panel"
+              {...(showQuiz ? { "aria-controls": "quiz-panel" } : {})}
               style={{
                 fontFamily: font, fontSize: 13, fontWeight: 600,
                 background: showQuiz ? "#1a2030" : "linear-gradient(135deg, #00ffa320, #00d4ff20)",
@@ -473,6 +475,7 @@ export default function OMIReadme() {
                     {qq.options.map((opt, oi) => (
                       <button
                         key={oi}
+                        type="button"
                         onClick={() => setQuizAnswers((p) => ({ ...p, [qi]: opt.track }))}
                         aria-pressed={quizAnswers[qi] === opt.track}
                         style={{
@@ -492,6 +495,7 @@ export default function OMIReadme() {
                 </div>
               ))}
               <button
+                type="button"
                 onClick={computeQuiz}
                 disabled={Object.keys(quizAnswers).length < 3}
                 style={{
@@ -548,15 +552,13 @@ export default function OMIReadme() {
               Click a track to explore what you'll be doing.
             </p>
 
-            {/* Track selector tabs */}
-            <div role="tablist" aria-label="Contribution tracks" style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            {/* Track selector */}
+            <div role="group" aria-label="Contribution tracks" style={{ display: "flex", gap: 8, marginBottom: 20 }}>
               {TRACKS.map((t) => (
                 <button
                   key={t.id}
-                  role="tab"
-                  aria-selected={activeTrack === t.id}
-                  aria-controls={`track-panel-${t.id}`}
-                  id={`track-tab-${t.id}`}
+                  type="button"
+                  aria-pressed={activeTrack === t.id}
                   onClick={() => setActiveTrack(activeTrack === t.id ? null : t.id)}
                   style={{
                     flex: 1, padding: "14px 16px",
@@ -595,9 +597,8 @@ export default function OMIReadme() {
               const t = TRACKS.find((tr) => tr.id === activeTrack);
               return (
                 <div
-                  role="tabpanel"
-                  id={`track-panel-${t.id}`}
-                  aria-labelledby={`track-tab-${t.id}`}
+                  role="region"
+                  aria-label={`${t.title} track details`}
                   style={{
                     background: "#0d1119",
                     border: `1px solid ${t.color}30`,
@@ -666,14 +667,12 @@ export default function OMIReadme() {
               Fast path — click each step
             </p>
 
-            <div role="tablist" aria-label="Contribution steps" style={{ display: "flex", gap: 0, marginBottom: 16 }}>
+            <div role="group" aria-label="Contribution steps" style={{ display: "flex", gap: 0, marginBottom: 16 }}>
               {STEPS.map((step, i) => (
                 <div key={i} style={{ flex: 1, position: "relative" }}>
                   <button
-                    role="tab"
-                    aria-selected={activeStep === i}
-                    aria-controls="step-panel"
-                    id={`step-tab-${i}`}
+                    type="button"
+                    aria-pressed={activeStep === i}
                     onClick={() => setActiveStep(i)}
                     style={{
                       width: "100%", padding: "16px 12px",
@@ -705,9 +704,8 @@ export default function OMIReadme() {
               ))}
             </div>
             <div
-              role="tabpanel"
-              id="step-panel"
-              aria-labelledby={`step-tab-${activeStep}`}
+              role="region"
+              aria-label={`Step ${activeStep + 1}: ${STEPS[activeStep].label}`}
               style={{
                 background: "#0d1119", border: "1px solid #1a2030",
                 borderRadius: 8, padding: "16px 20px",
@@ -750,18 +748,12 @@ export default function OMIReadme() {
               {PRINCIPLES.map((p, i) => (
                 <div
                   key={i}
+                  className="omi-principle-row"
                   tabIndex={0}
+                  aria-label={`${p.left} over ${p.right}`}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
                     padding: "14px 20px",
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#00ffa340";
-                    e.currentTarget.style.background = "#111722";
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = "#1a2030";
-                    e.currentTarget.style.background = "#0d1119";
                   }}
                 >
                   <span style={{

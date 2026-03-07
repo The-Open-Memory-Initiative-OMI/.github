@@ -571,7 +571,6 @@ export default function OMIReadme() {
                   border: `1px solid ${t.color}30`,
                   borderRadius: 12, padding: 28,
                   position: "relative", overflow: "hidden",
-                  animation: "fadeIn 0.3s ease",
                 }}>
                   <Glow color={t.color} top={-40} left={-40} size={200} />
                   <div style={{

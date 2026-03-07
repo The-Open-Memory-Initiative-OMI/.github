@@ -108,7 +108,10 @@ function useInView(threshold = 0.15) {
 
     const obs = new window.IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) setVisible(true);
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
       },
       { threshold }
     );

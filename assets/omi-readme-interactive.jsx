@@ -296,6 +296,8 @@ export default function OMIReadme() {
                 <button
                   key={key}
                   onClick={() => toggleSection(key)}
+                  aria-expanded={!!expandedSections[key]}
+                  aria-controls={`section-${key}`}
                   style={{
                     background: expandedSections[key] ? "#111722" : "#0d1119",
                     border: `1px solid ${expandedSections[key] ? color + "40" : "#1a2030"}`,
@@ -325,11 +327,14 @@ export default function OMIReadme() {
                       +
                     </span>
                   </div>
-                  <div style={{
-                    maxHeight: expandedSections[key] ? 300 : 0,
-                    overflow: "hidden",
-                    transition: "max-height 0.4s ease",
-                  }}>
+                  <div
+                    id={`section-${key}`}
+                    style={{
+                      maxHeight: expandedSections[key] ? 300 : 0,
+                      overflow: "hidden",
+                      transition: "max-height 0.4s ease",
+                    }}
+                  >
                     {items.map((item, i) => (
                       <div key={i} style={{
                         display: "flex", gap: 10, marginBottom: 10,
@@ -421,6 +426,8 @@ export default function OMIReadme() {
           <div style={{ marginBottom: 32, textAlign: "center" }}>
             <button
               onClick={() => { setShowQuiz(!showQuiz); setQuizResult(null); setQuizAnswers({}); }}
+              aria-expanded={showQuiz}
+              aria-controls="quiz-panel"
               style={{
                 fontFamily: font, fontSize: 13, fontWeight: 600,
                 background: showQuiz ? "#1a2030" : "linear-gradient(135deg, #00ffa320, #00d4ff20)",
@@ -436,11 +443,16 @@ export default function OMIReadme() {
           </div>
 
           {showQuiz && (
-            <div style={{
-              background: "#0d1119", border: "1px solid #1a2030",
-              borderRadius: 16, padding: 32, marginBottom: 32,
-              position: "relative", overflow: "hidden",
-            }}>
+            <div
+              id="quiz-panel"
+              role="region"
+              aria-label="Track finder quiz"
+              style={{
+                background: "#0d1119", border: "1px solid #1a2030",
+                borderRadius: 16, padding: 32, marginBottom: 32,
+                position: "relative", overflow: "hidden",
+              }}
+            >
               <Glow color="#00d4ff" top={-80} left={300} size={300} />
               <h3 style={{
                 fontFamily: font, fontSize: 14, fontWeight: 600,
@@ -462,6 +474,7 @@ export default function OMIReadme() {
                       <button
                         key={oi}
                         onClick={() => setQuizAnswers((p) => ({ ...p, [qi]: opt.track }))}
+                        aria-pressed={quizAnswers[qi] === opt.track}
                         style={{
                           fontFamily: font, fontSize: 12,
                           padding: "8px 16px", borderRadius: 6,
@@ -536,10 +549,14 @@ export default function OMIReadme() {
             </p>
 
             {/* Track selector tabs */}
-            <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            <div role="tablist" aria-label="Contribution tracks" style={{ display: "flex", gap: 8, marginBottom: 20 }}>
               {TRACKS.map((t) => (
                 <button
                   key={t.id}
+                  role="tab"
+                  aria-selected={activeTrack === t.id}
+                  aria-controls={`track-panel-${t.id}`}
+                  id={`track-tab-${t.id}`}
                   onClick={() => setActiveTrack(activeTrack === t.id ? null : t.id)}
                   style={{
                     flex: 1, padding: "14px 16px",
@@ -577,12 +594,17 @@ export default function OMIReadme() {
             {activeTrack && (() => {
               const t = TRACKS.find((tr) => tr.id === activeTrack);
               return (
-                <div style={{
-                  background: "#0d1119",
-                  border: `1px solid ${t.color}30`,
-                  borderRadius: 12, padding: 28,
-                  position: "relative", overflow: "hidden",
-                }}>
+                <div
+                  role="tabpanel"
+                  id={`track-panel-${t.id}`}
+                  aria-labelledby={`track-tab-${t.id}`}
+                  style={{
+                    background: "#0d1119",
+                    border: `1px solid ${t.color}30`,
+                    borderRadius: 12, padding: 28,
+                    position: "relative", overflow: "hidden",
+                  }}
+                >
                   <Glow color={t.color} top={-40} left={-40} size={200} />
                   <div style={{
                     fontSize: 15, color: "#c5cdd8", marginBottom: 20,
@@ -644,10 +666,14 @@ export default function OMIReadme() {
               Fast path — click each step
             </p>
 
-            <div style={{ display: "flex", gap: 0, marginBottom: 16 }}>
+            <div role="tablist" aria-label="Contribution steps" style={{ display: "flex", gap: 0, marginBottom: 16 }}>
               {STEPS.map((step, i) => (
                 <div key={i} style={{ flex: 1, position: "relative" }}>
                   <button
+                    role="tab"
+                    aria-selected={activeStep === i}
+                    aria-controls="step-panel"
+                    id={`step-tab-${i}`}
                     onClick={() => setActiveStep(i)}
                     style={{
                       width: "100%", padding: "16px 12px",
@@ -678,13 +704,18 @@ export default function OMIReadme() {
                 </div>
               ))}
             </div>
-            <div style={{
-              background: "#0d1119", border: "1px solid #1a2030",
-              borderRadius: 8, padding: "16px 20px",
-              fontFamily: font, fontSize: 14, color: "#8891a0",
-              lineHeight: 1.6,
-              minHeight: 56, display: "flex", alignItems: "center",
-            }}>
+            <div
+              role="tabpanel"
+              id="step-panel"
+              aria-labelledby={`step-tab-${activeStep}`}
+              style={{
+                background: "#0d1119", border: "1px solid #1a2030",
+                borderRadius: 8, padding: "16px 20px",
+                fontFamily: font, fontSize: 14, color: "#8891a0",
+                lineHeight: 1.6,
+                minHeight: 56, display: "flex", alignItems: "center",
+              }}
+            >
               <span style={{ color: "#00ffa3", marginRight: 10 }}>$</span>
               {STEPS[activeStep].detail}
               <span style={{ animation: "blink 1s step-end infinite", marginLeft: 2, color: "#00ffa3" }}>▌</span>
@@ -719,11 +750,18 @@ export default function OMIReadme() {
               {PRINCIPLES.map((p, i) => (
                 <div
                   key={i}
-                  className="omi-principle-row"
                   tabIndex={0}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
                     padding: "14px 20px",
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "#00ffa340";
+                    e.currentTarget.style.background = "#111722";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = "#1a2030";
+                    e.currentTarget.style.background = "#0d1119";
                   }}
                 >
                   <span style={{

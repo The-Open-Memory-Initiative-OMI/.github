@@ -607,10 +607,12 @@
       const headerSpan = card.querySelector('.toggle-card-header span');
       if (headerSpan) {
         const computedColor = getComputedStyle(headerSpan).color;
-        if (computedColor.startsWith('rgb(')) {
-          card.style.borderColor = computedColor
-            .replace('rgb(', 'rgba(')
-            .replace(')', ', 0.25)');
+        const match = computedColor.match(/^rgba?\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)(?:\s*,\s*([0-9.]+))?\s*\)$/);
+        if (match) {
+          const r = match[1];
+          const g = match[2];
+          const b = match[3];
+          card.style.borderColor = `rgba(${r}, ${g}, ${b}, 0.25)`;
         } else {
           card.style.borderColor = '';
         }

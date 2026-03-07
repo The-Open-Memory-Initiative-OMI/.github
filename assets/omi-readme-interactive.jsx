@@ -483,26 +483,30 @@ export default function OMIReadme() {
               >
                 Get My Result
               </button>
-              {quizResult && (
-                <div style={{
-                  marginTop: 20, padding: 16, borderRadius: 8,
-                  background: TRACKS.find((t) => t.id === quizResult).color + "10",
-                  border: `1px solid ${TRACKS.find((t) => t.id === quizResult).color}30`,
-                }}>
-                  <span style={{ fontSize: 22, marginRight: 8 }}>
-                    {TRACKS.find((t) => t.id === quizResult).icon}
-                  </span>
-                  <span style={{
-                    fontFamily: font, fontWeight: 600, fontSize: 15,
-                    color: TRACKS.find((t) => t.id === quizResult).color,
+              {quizResult && (() => {
+                const selectedTrack = TRACKS.find((t) => t.id === quizResult);
+                if (!selectedTrack) return null;
+                return (
+                  <div style={{
+                    marginTop: 20, padding: 16, borderRadius: 8,
+                    background: selectedTrack.color + "10",
+                    border: `1px solid ${selectedTrack.color}30`,
                   }}>
-                    You're a {TRACKS.find((t) => t.id === quizResult).title}!
-                  </span>
-                  <div style={{ fontSize: 13, color: "#8891a0", marginTop: 6 }}>
-                    Scroll down to explore your track details below.
+                    <span style={{ fontSize: 22, marginRight: 8 }}>
+                      {selectedTrack.icon}
+                    </span>
+                    <span style={{
+                      fontFamily: font, fontWeight: 600, fontSize: 15,
+                      color: selectedTrack.color,
+                    }}>
+                      You're a {selectedTrack.title}!
+                    </span>
+                    <div style={{ fontSize: 13, color: "#8891a0", marginTop: 6 }}>
+                      Scroll down to explore your track details below.
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
             </div>
           )}
         </Section>

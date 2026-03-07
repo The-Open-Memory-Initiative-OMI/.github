@@ -699,25 +699,29 @@ export default function OMIReadme() {
             }}>
               Contribution standards
             </h2>
+            <style>{`
+              .omi-principle-row {
+                background: #0d1119;
+                border: 1px solid #1a2030;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                outline: none;
+              }
+              .omi-principle-row:hover,
+              .omi-principle-row:focus-visible {
+                border-color: #00ffa340;
+                background: #111722;
+              }
+            `}</style>
             <div style={{ display: "grid", gap: 8 }}>
               {PRINCIPLES.map((p, i) => (
                 <div
                   key={i}
+                  className="omi-principle-row"
+                  tabIndex={0}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
                     padding: "14px 20px",
-                    background: "#0d1119",
-                    border: "1px solid #1a2030",
-                    borderRadius: 8,
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#00ffa340";
-                    e.currentTarget.style.background = "#111722";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "#1a2030";
-                    e.currentTarget.style.background = "#0d1119";
                   }}
                 >
                   <span style={{

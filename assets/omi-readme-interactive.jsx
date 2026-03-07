@@ -378,6 +378,7 @@ export default function OMIReadme() {
                   </div>
                   <div
                     id={`section-${key}`}
+                    aria-hidden={!expandedSections[key]}
                     style={{
                       maxHeight: expandedSections[key] ? 300 : 0,
                       overflow: "hidden",

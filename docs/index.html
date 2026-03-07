@@ -424,7 +424,7 @@
   <!-- ═══ QUIZ ═══ -->
   <section class="reveal">
     <div class="quiz-toggle">
-      <button class="quiz-btn" onclick="toggleQuiz()">⚡  Find Your Track — Take the Quiz</button>
+      <button type="button" class="quiz-btn" onclick="toggleQuiz()">⚡  Find Your Track — Take the Quiz</button>
     </div>
     <div class="quiz-panel" id="quizPanel">
       <div class="glow"></div>
@@ -432,26 +432,26 @@
 
       <div class="quiz-q">1. What excites you most?</div>
       <div class="quiz-options" data-q="0">
-        <button class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Automating workflows</button>
-        <button class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Finding inconsistencies</button>
-        <button class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Testing on real hardware</button>
+        <button type="button" class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Automating workflows</button>
+        <button type="button" class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Finding inconsistencies</button>
+        <button type="button" class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Testing on real hardware</button>
       </div>
 
       <div class="quiz-q">2. Preferred tools?</div>
       <div class="quiz-options" data-q="1">
-        <button class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Python, CI/CD, scripts</button>
-        <button class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Docs, specs, checklists</button>
-        <button class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Oscilloscopes, boards, probes</button>
+        <button type="button" class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Python, CI/CD, scripts</button>
+        <button type="button" class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Docs, specs, checklists</button>
+        <button type="button" class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Oscilloscopes, boards, probes</button>
       </div>
 
       <div class="quiz-q">3. Your superpower?</div>
       <div class="quiz-options" data-q="2">
-        <button class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Making things automatic</button>
-        <button class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Spotting what's missing</button>
-        <button class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Breaking things (on purpose)</button>
+        <button type="button" class="quiz-opt" data-track="dev" onclick="selectQuiz(this)">Making things automatic</button>
+        <button type="button" class="quiz-opt" data-track="review" onclick="selectQuiz(this)">Spotting what's missing</button>
+        <button type="button" class="quiz-opt" data-track="test" onclick="selectQuiz(this)">Breaking things (on purpose)</button>
       </div>
 
-      <button class="quiz-submit" id="quizSubmit" onclick="computeQuiz()">Get My Result</button>
+      <button type="button" class="quiz-submit" id="quizSubmit" onclick="computeQuiz()">Get My Result</button>
 
       <div class="quiz-result" id="quizResult"></div>
     </div>
@@ -463,17 +463,17 @@
     <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Click a track to explore what you'll be doing.</p>
 
     <div class="track-tabs">
-      <button class="track-tab" onclick="selectTrack('dev', this)" data-color="#00ffa3">
+      <button type="button" class="track-tab" onclick="selectTrack('dev', this)" data-color="#00ffa3">
         <div class="num" style="color: #00ffa3;">TRACK 01</div>
         <div class="name">⚡ Developers</div>
         <div class="sub">tooling + automation + docs</div>
       </button>
-      <button class="track-tab" onclick="selectTrack('review', this)" data-color="#00d4ff">
+      <button type="button" class="track-tab" onclick="selectTrack('review', this)" data-color="#00d4ff">
         <div class="num" style="color: #00d4ff;">TRACK 02</div>
         <div class="name">🔍 Reviewers</div>
         <div class="sub">correctness + clarity + scope</div>
       </button>
-      <button class="track-tab" onclick="selectTrack('test', this)" data-color="#ff6b9d">
+      <button type="button" class="track-tab" onclick="selectTrack('test', this)" data-color="#ff6b9d">
         <div class="num" style="color: #ff6b9d;">TRACK 03</div>
         <div class="name">🧪 Testers</div>
         <div class="sub">validation + reproducibility</div>
@@ -527,19 +527,19 @@
       Fast path — click each step
     </p>
     <div class="step-tabs">
-      <button class="step-tab active" onclick="selectStep(0, this)">
+      <button type="button" class="step-tab active" onclick="selectStep(0, this)">
         <div class="step-num">1</div>
         <div class="step-label">Open Repo</div>
       </button>
-      <button class="step-tab" onclick="selectStep(1, this)">
+      <button type="button" class="step-tab" onclick="selectStep(1, this)">
         <div class="step-num">2</div>
         <div class="step-label">Read Guide</div>
       </button>
-      <button class="step-tab" onclick="selectStep(2, this)">
+      <button type="button" class="step-tab" onclick="selectStep(2, this)">
         <div class="step-num">3</div>
         <div class="step-label">Pick Task</div>
       </button>
-      <button class="step-tab" onclick="selectStep(3, this)">
+      <button type="button" class="step-tab" onclick="selectStep(3, this)">
         <div class="step-num">4</div>
         <div class="step-label">Submit</div>
       </button>

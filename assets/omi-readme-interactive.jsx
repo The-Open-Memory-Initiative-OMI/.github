@@ -1,4 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+const { useState, useEffect, useRef } =
+  (typeof window !== "undefined" && window.React) || {
+    // Fallback shims so this file can be safely loaded in static GitHub Pages
+    useState: (initial) => [initial, () => {}],
+    useEffect: () => {},
+    useRef: (value) => ({ current: value ?? null }),
+  };
 
 const TRACKS = [
   {

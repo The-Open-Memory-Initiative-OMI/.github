@@ -71,8 +71,17 @@ function useInView(threshold = 0.15) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
+
+    // Guard against environments without IntersectionObserver (older browsers, some tests/SSR)
+    if (typeof window === "undefined" || typeof window.IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
+    const obs = new window.IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setVisible(true);
+      },
       { threshold }
     );
     obs.observe(el);

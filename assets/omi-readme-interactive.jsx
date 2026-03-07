@@ -534,15 +534,15 @@ export default function OMIReadme() {
               <button
                 type="button"
                 onClick={computeQuiz}
-                disabled={Object.keys(quizAnswers).length < 3}
+                disabled={Object.keys(quizAnswers).length < quizQuestions.length}
                 style={{
                   fontFamily: font, fontSize: 13, fontWeight: 600,
                   padding: "10px 24px", borderRadius: 8,
-                  background: Object.keys(quizAnswers).length >= 3
+                  background: Object.keys(quizAnswers).length >= quizQuestions.length
                     ? "linear-gradient(135deg, #00ffa3, #00d4ff)"
                     : "#1a2030",
-                  color: Object.keys(quizAnswers).length >= 3 ? "#0a0e14" : "#4a5568",
-                  border: "none", cursor: Object.keys(quizAnswers).length >= 3 ? "pointer" : "default",
+                  color: Object.keys(quizAnswers).length >= quizQuestions.length ? "#0a0e14" : "#4a5568",
+                  border: "none", cursor: Object.keys(quizAnswers).length >= quizQuestions.length ? "pointer" : "default",
                   transition: "all 0.3s ease",
                 }}
               >

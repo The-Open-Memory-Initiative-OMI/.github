@@ -575,7 +575,7 @@ export default function OMIReadme() {
                       fontFamily: font, fontWeight: 600, fontSize: 15,
                       color: selectedTrack.color,
                     }}>
-                      You're a {selectedTrack.title}!
+                      You got the {selectedTrack.title} track!
                     </span>
                     <div style={{ fontSize: 13, color: "#8891a0", marginTop: 6 }}>
                       Scroll down to explore your track details below.

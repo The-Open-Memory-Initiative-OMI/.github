@@ -609,6 +609,7 @@ export default function OMIReadme() {
             {/* Track detail panel */}
             {activeTrack && (() => {
               const t = TRACKS.find((tr) => tr.id === activeTrack);
+              if (!t) return null;
               return (
                 <div
                   role="region"

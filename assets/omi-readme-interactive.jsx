@@ -6,15 +6,19 @@
  *
  * HOW IT IS USED
  * This file is NOT processed by a build tool or bundler — the repo has no
- * package.json or React build pipeline.  Instead, the component logic is
- * compiled manually and inlined directly into docs/index.html, which is the
- * live page served at https://the-open-memory-initiative-omi.github.io/.github/
+ * package.json or React build pipeline. The published docs/index.html
+ * currently contains a hand-ported, vanilla HTML/JS implementation of this
+ * component and does not load React.
+ *
+ * Practically, this file serves as the authoring/reference source. When you
+ * change it, you must manually port the behavior into docs/index.html
+ * (for example, by re-implementing the logic in plain JS, or by pasting a
+ * precompiled bundle into the page) and then open a PR.
  *
  * If you want to iterate on this component with a proper dev loop:
  *   1. Copy the component into a Vite or Next.js project.
  *   2. Make your changes and verify them.
- *   3. Inline (or import via a CDN-based React setup) the updated output back
- *      into docs/index.html, then open a PR.
+ *   3. Reapply the equivalent changes to docs/index.html and open a PR.
  *
  * The file reads React hooks from `window.React` when available, with static
  * no-op shims as a fallback so the raw .jsx can be linted without a runtime.

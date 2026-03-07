@@ -26,7 +26,7 @@
 
 const { useState, useEffect, useRef } =
   (typeof window !== "undefined" && window.React) || {
-    // Fallback shims so this file can be safely loaded in static GitHub Pages
+    // Fallback no-ops to prevent hook-access errors in non-React environments (e.g. linting/static analysis); the raw .jsx is not browser-loadable as-is
     useState: (initial) => [initial, () => {}],
     useEffect: () => {},
     useRef: (value) => ({ current: value ?? null }),

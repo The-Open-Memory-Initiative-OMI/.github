@@ -123,13 +123,14 @@
   .toggle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 64px; }
   .toggle-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px 24px; cursor: pointer;
-    transition: all 0.3s ease; text-align: left;
-    -webkit-user-select: none; user-select: none;
+    border-radius: 12px; transition: all 0.3s ease;
   }
   .toggle-card.open { background: var(--surface-hover); }
   .toggle-card-header {
     display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 20px 24px; cursor: pointer; text-align: left;
+    background: transparent; border: none; color: inherit;
+    font-size: inherit; font-family: inherit;
   }
   .toggle-card-header span:first-child { font-family: var(--font-mono); font-weight: 600; font-size: 15px; }
   .toggle-card-header .icon {
@@ -138,9 +139,10 @@
   }
   .toggle-card.open .icon { transform: rotate(45deg); }
   .toggle-card-body {
-    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.3s ease;
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 24px;
   }
-  .toggle-card.open .toggle-card-body { max-height: 300px; margin-top: 16px; }
+  .toggle-card.open .toggle-card-body { max-height: 300px; padding: 0 24px 20px; }
   .toggle-item {
     display: flex; gap: 10px; margin-bottom: 10px;
     font-size: 14px; line-height: 1.6; color: var(--text-dim);
@@ -375,23 +377,23 @@
   <!-- ═══ WHAT OMI IS / ISN'T ═══ -->
   <section class="reveal">
     <div class="toggle-grid">
-      <div class="toggle-card" onclick="toggleCard(this)" data-color="var(--accent-green)">
-        <div class="toggle-card-header">
+      <div class="toggle-card">
+        <button class="toggle-card-header" type="button" aria-expanded="false" aria-controls="section-is" onclick="toggleCard(this)">
           <span style="color: var(--accent-green)">OMI is</span>
           <span class="icon">+</span>
-        </div>
-        <div class="toggle-card-body" aria-hidden="true">
+        </button>
+        <div class="toggle-card-body" id="section-is" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A community effort to document and design memory systems with auditability and repeatable validation</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A place where assumptions are explicit, decisions are documented, and review is structured</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A collaboration between developers, reviewers, and testers — not just PCB designers</div>
         </div>
       </div>
-      <div class="toggle-card" onclick="toggleCard(this)" data-color="var(--accent-red)">
-        <div class="toggle-card-header">
+      <div class="toggle-card">
+        <button class="toggle-card-header" type="button" aria-expanded="false" aria-controls="section-isnt" onclick="toggleCard(this)">
           <span style="color: var(--accent-red)">OMI is not</span>
           <span class="icon">+</span>
-        </div>
-        <div class="toggle-card-body" aria-hidden="true">
+        </button>
+        <div class="toggle-card-body" id="section-isnt" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A place to share NDA/proprietary vendor material, leaked docs, or anything violating IP boundaries</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A "trust me bro" spec dump — we prefer evidence, references, and clear assumptions</div>
         </div>
@@ -593,16 +595,16 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // ── Toggle cards ──
-  function toggleCard(card) {
+  function toggleCard(btn) {
+    const card = btn.closest('.toggle-card');
     card.classList.toggle('open');
-    const body = card.querySelector('.toggle-card-body');
     const isOpen = card.classList.contains('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = bodyId ? document.getElementById(bodyId) : card.querySelector('.toggle-card-body');
     if (body) body.setAttribute('aria-hidden', String(!isOpen));
-    const color = card.dataset.color;
-    card.style.borderColor = card.classList.contains('open') ? color.replace(')', ',0.25)').replace('var(', '') : '';
-    // Simple approach: just toggle border
-    if (card.classList.contains('open')) {
-      card.style.borderColor = card.querySelector('.toggle-card-header span').style.color.replace(')', ', 0.25)');
+    if (isOpen) {
+      card.style.borderColor = btn.querySelector('span').style.color.replace(')', ', 0.25)');
     } else {
       card.style.borderColor = '';
     }

@@ -341,27 +341,31 @@ export default function OMIReadme() {
                   ],
                 },
               ].map(({ key, title, color, items }) => (
-                <button
+                <div
                   key={key}
-                  type="button"
-                  onClick={() => toggleSection(key)}
-                  aria-expanded={!!expandedSections[key]}
-                  aria-controls={`section-${key}`}
                   style={{
                     background: expandedSections[key] ? "#111722" : "#0d1119",
                     border: `1px solid ${expandedSections[key] ? color + "40" : "#1a2030"}`,
                     borderRadius: 12,
-                    padding: "20px 24px",
-                    cursor: "pointer",
-                    textAlign: "left",
                     transition: "all 0.3s ease",
-                    color: "inherit",
                   }}
                 >
-                  <div style={{
-                    display: "flex", justifyContent: "space-between",
-                    alignItems: "center", marginBottom: expandedSections[key] ? 16 : 0,
-                  }}>
+                  <button
+                    type="button"
+                    onClick={() => toggleSection(key)}
+                    aria-expanded={!!expandedSections[key]}
+                    aria-controls={`section-${key}`}
+                    style={{
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      width: "100%",
+                      padding: "20px 24px",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      background: "transparent",
+                      border: "none",
+                      color: "inherit",
+                    }}
+                  >
                     <span style={{
                       fontFamily: font, fontWeight: 600, fontSize: 15,
                       color: color,
@@ -375,7 +379,7 @@ export default function OMIReadme() {
                     }}>
                       +
                     </span>
-                  </div>
+                  </button>
                   <div
                     id={`section-${key}`}
                     aria-hidden={!expandedSections[key]}
@@ -383,6 +387,7 @@ export default function OMIReadme() {
                       maxHeight: expandedSections[key] ? 300 : 0,
                       overflow: "hidden",
                       transition: "max-height 0.4s ease",
+                      padding: expandedSections[key] ? "0 24px 20px" : "0 24px",
                     }}
                   >
                     {items.map((item, i) => (
@@ -397,7 +402,7 @@ export default function OMIReadme() {
                       </div>
                     ))}
                   </div>
-                </button>
+                </div>
               ))}
             </div>
           </div>

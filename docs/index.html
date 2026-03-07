@@ -377,23 +377,23 @@
   <!-- ═══ WHAT OMI IS / ISN'T ═══ -->
   <section class="reveal">
     <div class="toggle-grid">
-      <div class="toggle-card">
-        <button class="toggle-card-header" type="button" aria-expanded="false" aria-controls="section-is" onclick="toggleCard(this)">
+      <div class="toggle-card" data-color="var(--accent-green)">
+        <button class="toggle-card-header" onclick="toggleCard(this.closest('.toggle-card'))" aria-expanded="false" aria-controls="toggle-body-omi-is">
           <span style="color: var(--accent-green)">OMI is</span>
-          <span class="icon">+</span>
+          <span class="icon" aria-hidden="true">+</span>
         </button>
-        <div class="toggle-card-body" id="section-is" aria-hidden="true">
+        <div class="toggle-card-body" id="toggle-body-omi-is" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A community effort to document and design memory systems with auditability and repeatable validation</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A place where assumptions are explicit, decisions are documented, and review is structured</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A collaboration between developers, reviewers, and testers — not just PCB designers</div>
         </div>
       </div>
-      <div class="toggle-card">
-        <button class="toggle-card-header" type="button" aria-expanded="false" aria-controls="section-isnt" onclick="toggleCard(this)">
+      <div class="toggle-card" data-color="var(--accent-red)">
+        <button class="toggle-card-header" onclick="toggleCard(this.closest('.toggle-card'))" aria-expanded="false" aria-controls="toggle-body-omi-is-not">
           <span style="color: var(--accent-red)">OMI is not</span>
-          <span class="icon">+</span>
+          <span class="icon" aria-hidden="true">+</span>
         </button>
-        <div class="toggle-card-body" id="section-isnt" aria-hidden="true">
+        <div class="toggle-card-body" id="toggle-body-omi-is-not" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A place to share NDA/proprietary vendor material, leaked docs, or anything violating IP boundaries</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A "trust me bro" spec dump — we prefer evidence, references, and clear assumptions</div>
         </div>
@@ -598,13 +598,17 @@
   function toggleCard(btn) {
     const card = btn.closest('.toggle-card');
     card.classList.toggle('open');
+    const body = card.querySelector('.toggle-card-body');
+    const btn = card.querySelector('.toggle-card-header');
     const isOpen = card.classList.contains('open');
     btn.setAttribute('aria-expanded', String(isOpen));
     const bodyId = btn.getAttribute('aria-controls');
     const body = bodyId ? document.getElementById(bodyId) : card.querySelector('.toggle-card-body');
     if (body) body.setAttribute('aria-hidden', String(!isOpen));
-    if (isOpen) {
-      card.style.borderColor = btn.querySelector('span').style.color.replace(')', ', 0.25)');
+    if (btn) btn.setAttribute('aria-expanded', String(isOpen));
+    // Simple approach: just toggle border
+    if (card.classList.contains('open')) {
+      card.style.borderColor = card.querySelector('.toggle-card-header span').style.color.replace(')', ', 0.25)');
     } else {
       card.style.borderColor = '';
     }

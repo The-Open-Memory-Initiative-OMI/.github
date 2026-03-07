@@ -604,7 +604,19 @@
     const body = bodyId ? document.getElementById(bodyId) : card.querySelector('.toggle-card-body');
     if (body) body.setAttribute('aria-hidden', String(!isOpen));
     if (isOpen) {
-      card.style.borderColor = card.querySelector('.toggle-card-header span').style.color.replace(')', ', 0.25)');
+      const headerSpan = card.querySelector('.toggle-card-header span');
+      if (headerSpan) {
+        const computedColor = getComputedStyle(headerSpan).color;
+        if (computedColor.startsWith('rgb(')) {
+          card.style.borderColor = computedColor
+            .replace('rgb(', 'rgba(')
+            .replace(')', ', 0.25)');
+        } else {
+          card.style.borderColor = '';
+        }
+      } else {
+        card.style.borderColor = '';
+      }
     } else {
       card.style.borderColor = '';
     }

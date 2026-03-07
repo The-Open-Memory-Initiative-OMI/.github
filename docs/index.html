@@ -380,7 +380,7 @@
           <span style="color: var(--accent-green)">OMI is</span>
           <span class="icon">+</span>
         </div>
-        <div class="toggle-card-body">
+        <div class="toggle-card-body" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A community effort to document and design memory systems with auditability and repeatable validation</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A place where assumptions are explicit, decisions are documented, and review is structured</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-green)">✓</span> A collaboration between developers, reviewers, and testers — not just PCB designers</div>
@@ -391,7 +391,7 @@
           <span style="color: var(--accent-red)">OMI is not</span>
           <span class="icon">+</span>
         </div>
-        <div class="toggle-card-body">
+        <div class="toggle-card-body" aria-hidden="true">
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A place to share NDA/proprietary vendor material, leaked docs, or anything violating IP boundaries</div>
           <div class="toggle-item"><span class="marker" style="color: var(--accent-red)">✗</span> A "trust me bro" spec dump — we prefer evidence, references, and clear assumptions</div>
         </div>
@@ -595,6 +595,9 @@
   // ── Toggle cards ──
   function toggleCard(card) {
     card.classList.toggle('open');
+    const body = card.querySelector('.toggle-card-body');
+    const isOpen = card.classList.contains('open');
+    if (body) body.setAttribute('aria-hidden', String(!isOpen));
     const color = card.dataset.color;
     card.style.borderColor = card.classList.contains('open') ? color.replace(')', ',0.25)').replace('var(', '') : '';
     // Simple approach: just toggle border

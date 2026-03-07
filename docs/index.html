@@ -598,16 +598,12 @@
   function toggleCard(btn) {
     const card = btn.closest('.toggle-card');
     card.classList.toggle('open');
-    const body = card.querySelector('.toggle-card-body');
-    const btn = card.querySelector('.toggle-card-header');
     const isOpen = card.classList.contains('open');
     btn.setAttribute('aria-expanded', String(isOpen));
     const bodyId = btn.getAttribute('aria-controls');
     const body = bodyId ? document.getElementById(bodyId) : card.querySelector('.toggle-card-body');
     if (body) body.setAttribute('aria-hidden', String(!isOpen));
-    if (btn) btn.setAttribute('aria-expanded', String(isOpen));
-    // Simple approach: just toggle border
-    if (card.classList.contains('open')) {
+    if (isOpen) {
       card.style.borderColor = card.querySelector('.toggle-card-header span').style.color.replace(')', ', 0.25)');
     } else {
       card.style.borderColor = '';

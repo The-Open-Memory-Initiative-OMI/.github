@@ -798,7 +798,6 @@ export default function OMIReadme() {
                 <div
                   key={i}
                   className="omi-principle-row"
-                  tabIndex={0}
                   aria-label={`${p.left} over ${p.right}`}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,

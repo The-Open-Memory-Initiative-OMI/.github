@@ -174,8 +174,11 @@ export default function OMIReadme() {
   ];
 
   const computeQuiz = () => {
+    if (Object.keys(quizAnswers).length < quizQuestions.length) return;
     const counts = { dev: 0, review: 0, test: 0 };
-    Object.values(quizAnswers).forEach((t) => counts[t]++);
+    Object.values(quizAnswers).forEach((t) => {
+      if (Object.prototype.hasOwnProperty.call(counts, t)) counts[t]++;
+    });
     const best = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
     setQuizResult(best);
     setActiveTrack(best);

@@ -1,4 +1,4 @@
-<!-- OMI — Open Memory Initiative -->
+<!-- OMI - Open Memory Initiative -->
 
 <div align="center">
 
@@ -10,172 +10,66 @@
 
 <br><br>
 
-**Open, verifiable memory design + documentation ecosystem**
-<br>
-Making memory systems explainable, reviewable, and reproducible.
+**Open-source, build-in-the-open reference designs and tooling for computer memory.**
 
 <br>
 
-[![Interactive Guide](https://img.shields.io/badge/Interactive_Guide-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=2da44e)](https://the-open-memory-initiative-omi.github.io/.github/)
+Making memory hardware explainable, reviewable, and reproducible - from public sources, with the reasoning written down.
+
+<br>
+
+[![Start Here](https://img.shields.io/badge/Start_Here-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=8250df)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
 &nbsp;
 [![Discussions](https://img.shields.io/badge/Discussions-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=57606a)](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)
-&nbsp;
-[![Start Here](https://img.shields.io/badge/Start_Here-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=8250df)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
 
 </div>
 
 <br>
 
-> **Principle:** No black boxes. If it can't be inspected, it can't be trusted.
+> **No black boxes.** If it can't be inspected, it can't be trusted.
+
+> Independent learning/reference initiative - **not affiliated with, or the same as, the industry "Open Memory Interface (OMI)"** serial-memory standard (the OpenCAPI/IBM interface).
 
 ---
 
-## What OMI is (and isn't)
+## What this is
 
-<details>
-<summary>✅ <strong>OMI is</strong></summary>
+A place to take memory hardware apart and rebuild it **in the open** - the kind of end-to-end reference work usually locked behind paywalled JEDEC raw cards and vendor NDAs. Every design decision is documented, every artifact is reproducible, and **claims match reality**: work is described at exactly the stage it has reached (schematic, validated, …), never more.
 
-<br>
+It's a **single-maintainer** effort [Mert Efe Şensoy](https://github.com/mertefesensoy) not a consortium. Governance is intentionally lightweight; contributions are welcome (see below).
 
-- A community effort to document and design memory systems with **auditability** and **repeatable validation**
-- A place where assumptions are explicit, decisions are documented, and review is structured
-- A collaboration between **developers, reviewers, and testers** — not just PCB designers
+**OMI is**
+- An open, auditable way to document and design memory systems, with explicit assumptions and repeatable validation.
+- A project where decisions are written down and reviewable.
 
-</details>
-
-<details>
-<summary>🚫 <strong>OMI is not</strong></summary>
-
-<br>
-
-- A place to share NDA/proprietary vendor material, leaked docs, or anything that could violate IP boundaries
-- A "trust me bro" spec dump — we prefer evidence, references, and clear assumptions
-
-</details>
+**OMI is not**
+- A place for NDA / proprietary vendor material, leaked docs, or anything that crosses IP boundaries.
+- A "trust me" spec dump - evidence, references, and stated assumptions come first.
 
 ---
 
-## Where to start
+## Projects
 
-| | Resource | Description |
-|:---:|:---|:---|
-| ⭐ | **[omi](https://github.com/The-Open-Memory-Initiative-OMI/omi)** core repository | Start from [`START_HERE.md`](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md) — beginner-friendly entry points and tracks |
-| 💬 | **[Discussions](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)** | Questions, proposals, and design RFCs |
-| 🎯 | **[Issues](https://github.com/The-Open-Memory-Initiative-OMI/omi/issues)** | Actionable tasks, review findings, and validation reports |
+### [`omi`](https://github.com/The-Open-Memory-Initiative-OMI/omi) - DDR4 UDIMM reference design (v1)
+A **schematic-stage** reference design for an 8 GB 1Rx8 non-ECC **DDR4 UDIMM**, derived entirely from public sources with full decision rationale.
+**Status: schematic complete** - real 288-pin edge connector, **ERC-clean (0 violations)**, footprint-complete, with a generated netlist + BOM + schematic PDF. PCB layout, fabrication, signal-integrity simulation, and a bench-tested board are **future work - not yet done**, and are marked as such throughout. → start at [`START_HERE.md`](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md).
 
----
-
-## We're recruiting — pick a track
-
-> **Not sure which track fits you?** Try our **[interactive Track Finder quiz →](https://the-open-memory-initiative-omi.github.io/.github/)**
-
-<details open>
-<summary>⚡ <strong>Track 01 — Developers</strong> <em>(tooling + automation + docs)</em></summary>
-
-<br>
-
-You can contribute **without touching hardware.**
-
-| What you'll do |
-|:---|
-| Build linters/checkers (naming rules, consistency checks, schema validation) |
-| Improve documentation pipelines (doc generation, CI, templates) |
-| Create "spec ↔ schematic ↔ validation" traceability helpers |
-
-**Good fit if you like:** `Python` `CI` `GitHub Actions` `docs engineering` `automation`
-
-</details>
-
-<details>
-<summary>🔍 <strong>Track 02 — Reviewers</strong> <em>(correctness + clarity + scope enforcement)</em></summary>
-
-<br>
-
-You help **keep OMI coherent.**
-
-| What you'll do |
-|:---|
-| Review docs/specs for internal consistency and missing assumptions |
-| Check that decisions are justified and scoped properly |
-| Turn "vibes" into structured review notes and actionable issues |
-
-**Good fit if you like:** `systems thinking` `correctness` `design review` `documentation quality`
-
-</details>
-
-<details>
-<summary>🧪 <strong>Track 03 — Testers</strong> <em>(validation evidence + reproducible reports)</em></summary>
-
-<br>
-
-You turn **designs into reality checks.**
-
-| What you'll do |
-|:---|
-| Run validation steps on real platforms |
-| Submit structured test reports (platform details, procedure, results, failures) |
-| Help build the validation matrix (what works where, and why) |
-
-**Good fit if you like:** `hardware bring-up` `debugging` `measurement discipline` `reporting`
-
-</details>
+### DDR5 SPD decoder + linter - *next*
+A read-only, open-source **DDR5 SPD** tool: a clean JESD400-5 content decoder, plus a semantic linter that validates SPD timing ranges, internal consistency, and JEDEC compliance (beyond CRC). *Planned / in progress — a link will appear here once the repo is public.*
 
 ---
 
-## How contributions work (fast path)
+## Contributing
 
-```
- ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
- │  1. OPEN    │───▶│  2. READ    │───▶│  3. PICK   │───▶│  4. SUBMIT  │
- │  omi repo   │    │ START_HERE  │    │  a task     │    │  PR / Issue │
- └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-```
+Open an issue or PR on the relevant repo. Most useful right now:
 
-**Task labels to look for:**
+- **Corrections & design review** - errors or ambiguities in the schematic, the 288-pin pin-map, the validation framework, or the docs. Accuracy is what this project values most.
+- **Hardware bring-up** - anyone with PCB-layout, fabrication, or lab capability who wants to take `omi` v1 to a physical prototype (layout → fab → assembly → bench). See [omi#2](https://github.com/The-Open-Memory-Initiative-OMI/omi/issues/2). An honest "I can do X but not Y" beats a blanket offer.
 
-| Label | Lane |
-|:------|:-----|
-| `good-first-issue` | Easy entry |
-| `review-needed` | Review lane |
-| `test-needed` | Validation lane |
-
-**Submit either:** a PR (docs/tooling) or an Issue using the template (review finding / validation report).
+**Standards:** reproducibility over cleverness · explicit assumptions over hidden context · evidence and traceability over "it seems right." If something's ambiguous, open an issue or Discussion first.
 
 ---
 
-## Contribution standards
+## License
 
-| We optimize for | Not for |
-|:---|:---|
-| 🔁 **Reproducibility** | cleverness |
-| 📖 **Explicit assumptions** | hidden context |
-| 🧩 **Structured review** | subjective debate |
-| 🔗 **Evidence & traceability** | "it seems right" |
-
-> If something feels ambiguous, open a Discussion or issue first — we'd rather clarify early than merge confusion.
-
----
-
-## Licensing & safety note
-
-Each repo may have its own `LICENSE`. If a repo has no license file, assume contributions shouldn't be reused externally until licensing is clarified — and open an issue to fix it.
-
----
-
-<div align="center">
-
-### Want to help but unsure where?
-
-Open a Discussion titled:<br>
-**"I want to contribute — help me pick a starter task"**<br>
-Include: your skills, available time, and whether you can test on hardware.
-
-<br>
-
-**Welcome aboard.**
-
-<br>
-
-[![Explore the Interactive Guide](https://img.shields.io/badge/✨_Explore_the_Interactive_Guide-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=2da44e)](https://the-open-memory-initiative-omi.github.io/.github/)
-
-</div>
+Hardware **CERN-OHL-S-2.0** · code/tooling **Apache-2.0** · docs **CC-BY-SA-4.0** (per repo). First principle: **honesty over polish** - if it isn't built or measured, the docs don't say it is.

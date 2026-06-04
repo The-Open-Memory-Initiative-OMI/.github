@@ -54,8 +54,8 @@ It's a **single-maintainer** effort [Mert Efe Şensoy](https://github.com/mertef
 A **schematic-stage** reference design for an 8 GB 1Rx8 non-ECC **DDR4 UDIMM**, derived entirely from public sources with full decision rationale.
 **Status: schematic complete** - real 288-pin edge connector, **ERC-clean (0 violations)**, footprint-complete, with a generated netlist + BOM + schematic PDF. PCB layout, fabrication, signal-integrity simulation, and a bench-tested board are **future work - not yet done**, and are marked as such throughout. → start at [`START_HERE.md`](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md).
 
-### DDR5 SPD decoder + linter - *next*
-A read-only, open-source **DDR5 SPD** tool: a clean JESD400-5 content decoder, plus a semantic linter that validates SPD timing ranges, internal consistency, and JEDEC compliance (beyond CRC). *Planned / in progress — a link will appear here once the repo is public.*
+### [`spdr`](https://github.com/The-Open-Memory-Initiative-OMI/spdr) - DDR5 SPD decoder + linter - *next*
+A read-only, open-source **DDR5 SPD** tool: a clean JESD400-5 content decoder, plus a semantic linter that validates SPD timing ranges, internal consistency, and JEDEC compliance (beyond CRC). *In progress.*
 
 ---
 

@@ -1,5 +1,3 @@
-<!-- OMI - Open Memory Initiative -->
-
 <div align="center">
 
 <picture>
@@ -8,68 +6,25 @@
   <img alt="Open Memory Initiative" src="https://raw.githubusercontent.com/The-Open-Memory-Initiative-OMI/.github/main/assets/omi-banner-dark.svg" width="100%">
 </picture>
 
-<br><br>
-
-**Open-source, build-in-the-open reference designs and tooling for computer memory.**
-
-<br>
-
-Making memory hardware explainable, reviewable, and reproducible - from public sources, with the reasoning written down.
-
-<br>
-
-[![Start Here](https://img.shields.io/badge/Start_Here-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=8250df)](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md)
-&nbsp;
-[![Discussions](https://img.shields.io/badge/Discussions-24292f?style=for-the-badge&logo=github&logoColor=white&labelColor=57606a)](https://github.com/orgs/The-Open-Memory-Initiative-OMI/discussions)
-
 </div>
 
-<br>
+## This organisation is an archive
+
+The Open Memory Initiative ran here from December 2025 to November 2026. The work continues, with a wider scope, at **[Pactolus Microelectronics](https://github.com/Pactolus-Microelectronics)**: open memory, open tooling and open chips.
+
+Everything here is kept as it was, so that links to it keep working and the record stays whole.
+
+## What was built here
+
+| Project | What it is | Where it stood when this became an archive |
+|---|---|---|
+| [`omi`](https://github.com/The-Open-Memory-Initiative-OMI/omi) | A reference design for an 8 GB DDR4 UDIMM, built from public sources only, with the reasoning written down. | **Schematic only** (release v1.1.0). It passes the electrical rule check with [0 violations](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/exports/erc.json) and has a generated netlist, parts list and PDF. Decoupling, termination and the SPD device were open items. No board layout was made and no board was built. The design continues as [`ddr4-udimm`](https://github.com/Pactolus-Microelectronics/ddr4-udimm). |
+| [`spdr`](https://github.com/Pactolus-Microelectronics/spdr) | A read-only decoder and linter for DDR5 SPD data, written in Rust. | **Released** on [crates.io](https://crates.io/crates/spdr). It started here and moved to Pactolus Microelectronics in November 2026, where it is maintained. Its old address redirects. |
+
+A correction to the record: earlier versions of this page and of the v1.1.0 release notes called the DDR4 schematic "complete". It is complete as a connectivity schematic that passes its rule check. It is not a finished design.
 
 > **No black boxes.** If it can't be inspected, it can't be trusted.
 
-> Independent learning/reference initiative - **not affiliated with, or the same as, the industry "Open Memory Interface (OMI)"** serial-memory standard (the OpenCAPI/IBM interface).
+Independent learning and reference work by a single maintainer, [Mert Efe Şensoy](https://github.com/mertefesensoy). Not affiliated with, or the same as, the industry "Open Memory Interface (OMI)" serial-memory standard.
 
----
-
-## What this is
-
-A place to take memory hardware apart and rebuild it **in the open** - the kind of end-to-end reference work usually locked behind paywalled JEDEC raw cards and vendor NDAs. Every design decision is documented, every artifact is reproducible, and **claims match reality**: work is described at exactly the stage it has reached (schematic, validated, …), never more.
-
-It's a **single-maintainer** effort [Mert Efe Şensoy](https://github.com/mertefesensoy) not a consortium. Governance is intentionally lightweight; contributions are welcome (see below).
-
-**OMI is**
-- An open, auditable way to document and design memory systems, with explicit assumptions and repeatable validation.
-- A project where decisions are written down and reviewable.
-
-**OMI is not**
-- A place for NDA / proprietary vendor material, leaked docs, or anything that crosses IP boundaries.
-- A "trust me" spec dump - evidence, references, and stated assumptions come first.
-
----
-
-## Projects
-
-### [`omi`](https://github.com/The-Open-Memory-Initiative-OMI/omi) - DDR4 UDIMM reference design (v1)
-A **schematic-stage** reference design for an 8 GB 1Rx8 non-ECC **DDR4 UDIMM**, derived entirely from public sources with full decision rationale.
-**Status: schematic complete** - real 288-pin edge connector, **ERC-clean (0 violations)**, footprint-complete, with a generated netlist + BOM + schematic PDF. PCB layout, fabrication, signal-integrity simulation, and a bench-tested board are **future work - not yet done**, and are marked as such throughout. → start at [`START_HERE.md`](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/START_HERE.md).
-
-### [`spdr`](https://github.com/The-Open-Memory-Initiative-OMI/spdr) - DDR5 SPD decoder + linter - *next*
-A read-only, open-source **DDR5 SPD** tool: a clean JESD400-5 content decoder, plus a semantic linter that validates SPD timing ranges, internal consistency, and JEDEC compliance (beyond CRC). *In progress.*
-
----
-
-## Contributing
-
-Open an issue or PR on the relevant repo. Most useful right now:
-
-- **Corrections & design review** - errors or ambiguities in the schematic, the 288-pin pin-map, the validation framework, or the docs. Accuracy is what this project values most.
-- **Hardware bring-up** - anyone with PCB-layout, fabrication, or lab capability who wants to take `omi` v1 to a physical prototype (layout → fab → assembly → bench). See [omi#2](https://github.com/The-Open-Memory-Initiative-OMI/omi/issues/2). An honest "I can do X but not Y" beats a blanket offer.
-
-**Standards:** reproducibility over cleverness · explicit assumptions over hidden context · evidence and traceability over "it seems right." If something's ambiguous, open an issue or Discussion first.
-
----
-
-## License
-
-Hardware **CERN-OHL-S-2.0** · code/tooling **Apache-2.0** · docs **CC-BY-SA-4.0** (per repo). First principle: **honesty over polish** - if it isn't built or measured, the docs don't say it is.
+Hardware is under CERN-OHL-S-2.0, code under Apache-2.0 and documents under CC-BY-SA-4.0, as stated in each repository.

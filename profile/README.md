@@ -19,7 +19,7 @@ Everything here is kept as it was, so that links to it keep working and the reco
 | Project | What it is | Where it stood when this became an archive |
 |---|---|---|
 | [`omi`](https://github.com/The-Open-Memory-Initiative-OMI/omi) | A reference design for an 8 GB DDR4 UDIMM, built from public sources only, with the reasoning written down. | **Schematic only** (release v1.1.0). It passes the electrical rule check with [0 violations](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/exports/erc.json) and has a generated netlist, parts list and PDF. Decoupling, termination and the SPD device were open items. No board layout was made and no board was built. The design continues as [`ddr4-udimm`](https://github.com/Pactolus-Microelectronics/ddr4-udimm). |
-| [`spdr`](https://github.com/Pactolus-Microelectronics/spdr) | A read-only decoder and linter for DDR5 SPD data, written in Rust. | **Released** on [crates.io](https://crates.io/crates/spdr). It started here and moved to Pactolus Microelectronics in November 2026, where it is maintained. Its old address redirects. |
+| [`spdr`](https://github.com/Pactolus-Microelectronics/spdr) | A read-only decoder and linter for DDR5 SPD data, written in Rust. | **Released** on [crates.io](https://crates.io/crates/spdr). It started here and moved to Pactolus Microelectronics in November 2026, where it is maintained. The `spdr` repository in this organisation is a fork of it. |
 
 A correction to the record: earlier versions of this page and of the v1.1.0 release notes called the DDR4 schematic "complete". It is complete as a connectivity schematic that passes its rule check. It is not a finished design.
 

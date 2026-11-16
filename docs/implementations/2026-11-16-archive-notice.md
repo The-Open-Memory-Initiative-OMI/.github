@@ -29,7 +29,7 @@ The correction to the record is stated on the page itself, in its own sentence, 
 ## Design Decisions
 
 - **A notice, not a redirect.** The organisation is kept, not renamed, so that links to it keep showing the work. The page therefore has to stand on its own as a truthful record.
-- **`omi` stays here; `spdr` moved.** The DDR4 design was copied to the new organisation as `ddr4-udimm`, with its full history, and the original remains here. `spdr` was transferred, so its link in the table points at its new address; the old address redirects.
+- **`omi` stays here; `spdr` moved.** The DDR4 design was copied to the new organisation as `ddr4-udimm`, with its full history, and the original remains here. `spdr` was transferred, so its link in the table points at its new address. A fork of it was then created in this organisation at the old address, so that address shows the fork and no longer redirects.
 - **No repository is marked read-only by this change.** That is a separate decision.
 
 ## Verification

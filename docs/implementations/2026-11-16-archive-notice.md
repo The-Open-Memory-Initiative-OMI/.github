@@ -43,3 +43,7 @@ The correction to the record is stated on the page itself, in its own sentence, 
 
 - The new home: https://github.com/Pactolus-Microelectronics
 - `omi`: https://github.com/The-Open-Memory-Initiative-OMI/omi
+
+## Correction (2026-11-17)
+
+The design decision "`omi` stays here; `spdr` moved" did not stay true. On 2026-11-16 the original `omi` repository moved to the new organisation as `Pactolus-Microelectronics/ddr4-udimm`, keeping its repository ID, history, stars, issues and the v1.1.0 release. A fork of it was then created here at the old address, as had already happened with `spdr`. The page was corrected to match on 2026-11-17; see [2026-11-17-archive-notice-omi-fork.md](2026-11-17-archive-notice-omi-fork.md).

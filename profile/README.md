@@ -12,16 +12,16 @@
 
 The Open Memory Initiative ran here from December 2025 to November 2026. The work continues, with a wider scope, at **[Pactolus Microelectronics](https://github.com/Pactolus-Microelectronics)**: open memory, open tooling and open chips.
 
-Everything here is kept as it was, so that links to it keep working and the record stays whole.
+Both projects have moved to Pactolus Microelectronics with their history, issues and releases. Forks of them stay here at their old addresses, so that links to them keep working.
 
 ## What was built here
 
 | Project | What it is | Where it stood when this became an archive |
 |---|---|---|
-| [`omi`](https://github.com/The-Open-Memory-Initiative-OMI/omi) | A reference design for an 8 GB DDR4 UDIMM, built from public sources only, with the reasoning written down. | **Schematic only** (release v1.1.0). It passes the electrical rule check with [0 violations](https://github.com/The-Open-Memory-Initiative-OMI/omi/blob/main/exports/erc.json) and has a generated netlist, parts list and PDF. Decoupling, termination and the SPD device were open items. No board layout was made and no board was built. The design continues as [`ddr4-udimm`](https://github.com/Pactolus-Microelectronics/ddr4-udimm). |
+| [`omi`](https://github.com/Pactolus-Microelectronics/ddr4-udimm) | A reference design for an 8 GB DDR4 UDIMM, built from public sources only, with the reasoning written down. | **Schematic only** (release [v1.1.0](https://github.com/Pactolus-Microelectronics/ddr4-udimm/releases/tag/v1.1.0)). It passes the electrical rule check with [0 violations](https://github.com/Pactolus-Microelectronics/ddr4-udimm/blob/v1.1.0/exports/erc.json) and has a generated netlist, parts list and PDF. Decoupling, termination and the SPD device were open items. No board layout was made and no board was built. It moved to Pactolus Microelectronics in November 2026 as [`ddr4-udimm`](https://github.com/Pactolus-Microelectronics/ddr4-udimm), where it is maintained. The `omi` repository in this organisation is a fork of it. |
 | [`spdr`](https://github.com/Pactolus-Microelectronics/spdr) | A read-only decoder and linter for DDR5 SPD data, written in Rust. | **Released** on [crates.io](https://crates.io/crates/spdr). It started here and moved to Pactolus Microelectronics in November 2026, where it is maintained. The `spdr` repository in this organisation is a fork of it. |
 
-A correction to the record: earlier versions of this page and of the v1.1.0 release notes called the DDR4 schematic "complete". It is complete as a connectivity schematic that passes its rule check. It is not a finished design.
+A correction to the record: earlier versions of this page and of the v1.1.0 release notes called the DDR4 schematic "complete". It is complete as a connectivity schematic that passes its rule check. It is not a finished design. The v1.1.0 release now carries an [erratum](https://github.com/Pactolus-Microelectronics/ddr4-udimm/releases/tag/v1.1.0) that says so.
 
 > **No black boxes.** If it can't be inspected, it can't be trusted.
 
